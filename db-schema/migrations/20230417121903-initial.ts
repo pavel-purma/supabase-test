@@ -7,7 +7,7 @@ export const setup: MigrationV1SetupFunction = (options, seedLink) => {
 };
 
 export const up: MigrationV1Function = async db => {
-    await db.createTable('vocabulary_test', {
+    await db.createTable('test_table', {
         id: {
             type: type.BIGINT,
             primaryKey: true,
@@ -20,7 +20,7 @@ export const up: MigrationV1Function = async db => {
 };
 
 export const down: MigrationV1Function = async db => {
-    await db.dropTable('vocabulary_test');
+    await db.dropTable('test_table');
 };
 
 export const _meta: MigrationV1Meta = {
