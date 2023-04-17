@@ -1,0 +1,14 @@
+{
+    "defaultEnv": "dev",
+    "dev": {
+        "driver": "pg",
+        "host": "db.schvrndvshlrxqsnhhqf.supabase.co",
+        "database": "postgres",
+        "port": "5432",
+        "user": "postgres",
+        "password": {
+            "ENV": "PG_PASSWORD"
+        },
+        "schema": "public"
+    }
+}

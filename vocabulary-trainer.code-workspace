@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "next"
+		},
+		{
+			"path": "db-schema"
 		}
 	],
 	"settings": {}

@@ -1,0 +1,14 @@
+root = true
+
+[*]
+end_of_line = crlf
+charset = utf-8
+indent_style = space
+
+[*.{ts,json,js}]
+trim_trailing_whitespace = true
+indent_size = 4
+
+[*.sql]
+indent_style = space
+indent_size = 4

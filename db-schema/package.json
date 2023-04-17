@@ -1,0 +1,18 @@
+{
+    "private": true,
+    "scripts": {
+        "db-up": "dotenv -e .env.local -c node db-migrate up",
+        "db-reset": "dotenv -e .env.local -c node db-migrate reset"
+    },
+    "dependencies": {
+        "db-migrate": "^0.11.13",
+        "db-migrate-pg": "^1.2.2",
+        "db-migrate-plugin-typescript": "^2.0.0",
+        "@supabase/supabase-js": "^2.20.0"
+    },
+    "devDependencies": {
+        "@types/node": "^18.15.11",
+        "typescript": "^5.0.4",
+        "dotenv-cli": "^7.2.1"
+    }
+}
