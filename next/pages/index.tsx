@@ -23,6 +23,10 @@ export default function IndexPage({ props }) {
 
         <h2>Logged in</h2>
 
+        <div className='mt-5 mb-5 ml-8 mr-8'>
+          <a href="/vocabulary-list/list-view">Vocabulary lists</a>
+        </div>
+
         <button onClick={
           () => sessionContext.supabaseClient.auth.signOut()
         }>
