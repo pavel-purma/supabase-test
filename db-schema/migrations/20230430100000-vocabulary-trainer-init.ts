@@ -9,13 +9,16 @@ export const setup: MigrationV1SetupFunction = (options, seedLink) => {
 };
 
 export const up: MigrationV1Function = async db => {
-    const filePath = path.join(__dirname, '20230417130000-test.sql');
+    const filePath = path.join(__dirname, '20230430100000-vocabulary-trainer-init.sql');
     const sqlFileContent = fs.readFileSync(filePath, 'utf-8');
     await db.runSql(sqlFileContent);
 };
 
 export const down: MigrationV1Function = async db => {
-    await db.dropTable('test_table2');
+    try {
+        await db.dropTable('vocabulary_set');
+    } catch {
+    }
 };
 
 export const _meta: MigrationV1Meta = {

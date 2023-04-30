@@ -1,9 +1,15 @@
-export default function ListViewLayout({ children }): JSX.Element {
+import { useRouter } from "next/navigation";
+
+export default function ListViewLayout({ children, backUrl }): JSX.Element {
+    const router = useRouter();
+
     return (
         <div className="flex flex-col h-screen justify-between">
             <header className="bg-orange-300">
                 <div className="border-1 border-white flex h-14 relative">
-                    <button className='h-14'>
+                    <button className='h-14' onClick={() => {
+                        router.push(backUrl);
+                    }}>
                         <i className="fas fa-arrow-left text-white fa-lg my-auto pl-4 pr-5"></i>
                     </button>
                     <div className="text-white text-lg ml-3 font-sans font-semibold pt-3">Vocabulary lists</div>
