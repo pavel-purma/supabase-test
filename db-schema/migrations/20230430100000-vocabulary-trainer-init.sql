@@ -12,10 +12,10 @@ comment on table vocabulary_set is 'Vocabulary set';
 alter table vocabulary_set enable row level security;
 
 create policy "Allow logged-in read access" on vocabulary_set
-  for select using (auth.role() = 'authenticated');
+  for select using ( false );
 
 create policy "Allow individual insert access" on vocabulary_set
-  for insert with check (auth.uid() = owner_user_id);
+  for insert with check ( false );
 
 create policy "Allow individual update access" on vocabulary_set
   for update using ( auth.uid() = owner_user_id );
@@ -23,3 +23,18 @@ create policy "Allow individual update access" on vocabulary_set
 
 alter table vocabulary_set
   replica identity full;
+
+
+create or replace function vocabulary_set_create(
+  name varchar(200),
+  out new_id uuid
+)
+returns uuid as
+$$
+  begin
+    insert into vocabulary_set ("name", "data", "owner_user_id") 
+    values (name, '{}', auth.uid())
+    returning id into new_id;
+  end;
+$$
+language plpgsql security definer;
